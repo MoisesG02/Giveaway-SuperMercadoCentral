@@ -4,11 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SorteoPremiosComponent } from './sorteo-premios/sorteo-premios.component';
+import { RifaComponent } from './rifa/rifa.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SorteoPremiosComponent
+    SorteoPremiosComponent,
+    RifaComponent
   ],
   imports: [
     BrowserModule,
