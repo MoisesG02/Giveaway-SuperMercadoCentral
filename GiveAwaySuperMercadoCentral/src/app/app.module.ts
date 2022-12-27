@@ -5,16 +5,20 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SorteoPremiosComponent } from './sorteo-premios/sorteo-premios.component';
 import { RifaComponent } from './rifa/rifa.component';
+import { FormsModule } from '@angular/forms';
+import { MantPremiosComponent } from './mant-premios/mant-premios.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SorteoPremiosComponent,
-    RifaComponent
+    RifaComponent,
+    MantPremiosComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

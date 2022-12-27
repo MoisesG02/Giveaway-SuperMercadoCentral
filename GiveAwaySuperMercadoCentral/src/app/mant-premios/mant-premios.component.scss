@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@1,600&display=swap');
+
+.section {
+    opacity: 0.5;
+    background-image: linear-gradient(rgba(0, 0, 0, var(opacity)), rgba(0, 0, 0, var(opacity))), url("../../assets/Nuevo\ logo\ Central\ \(1\).PNG");
+}
+
+.bold {
+    font-weight: bold;
+    font-family: 'Nunito Sans', sans-serif;
+    font: 12px Arial;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 36px;
+    margin-top: 5px;
+}
+
+#basic-addon1 {
+    font-weight: 800;
+    font-size: 23px;
+    color: #FFFFFFFF;
+    background-color: #6ca414;
+}
+
+#select {
+    font-weight: 800;
+    font-size: 22px;
+}
+
+#BotonGx {
+    width: 330px;
+    height: 100px;
+    -moz-border-radius: 0 50% / 0 100%;
+    -webkit-border-radius: 0 50% / 0 100%;
+    border-radius: 0 50% / 0 100%;
+    font-weight: 800;
+    font-size: 22px;
+}
+.btn {
+    display: inline-block;
+    padding: 10px 40px;
+    background: #6ca414;
+    border-radius: 25px;
+    color: #fff;
+    border: 6px solid #fff;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+  }
+  
+  .btn:hover {
+    border: 6px solid #6ca414;
+  }
+
+#div1 {
+    height: 450px;
+    position: relative;
+    background-color: #85b43b;
+
+}
+
+#div3 {
+    height: 239px;
+    position: relative;
+    background-color: #fbdc06;
+
+}
+
+#div4 {
+    height: 180px;
+    position: relative;
+
+    background-color: #fb8506;
+
+}
+
+#div5 {
+    height: 180px;
+    position: relative;
+    background-color: #ec0424;
+
+}
+
+#div2 {
+    z-index: 0;
+    position: absolute;
+    width: 1480px;
+    height: 900px;
+    border-radius: 8px;
+    background-color: #FFFFFFFF;
+    text-align: center;
+}

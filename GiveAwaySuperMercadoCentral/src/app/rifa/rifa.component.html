@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="utf-8">
@@ -28,7 +28,7 @@
 
 <body>
 
-    <div class="d-flex justify-content-center" id="div1">
+    <div class="d-flex justify-content-center" id="div1" >
         <div class="container mt-5" id="div2">
             <img class="col-6 col-sm-6 col-md-6 col-lg-5 mt-5" src="../../assets/RifaCentral.jpg" alt="Logo Central">
             <div class="container mt-5">
@@ -39,33 +39,24 @@
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-4">
                                 <div class="input-group mb-3">
                                     <span class="input-group-text col-4 col-sm-4 col-md-4 col-lg-2" id="basic-addon1">#Ganadores</span>
-                                    <select class="form-select" id="select" aria-label="Default select example">
-                                        <option selected>Selecione Cantidad de Ganadores</option>
-                                        <option value="1">5</option>
-                                        <option value="2">10</option>
-                                        <option value="3">15</option>
-                                    </select>
+                                    <input  type="text" id="select" [(ngModel)]="numero" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                                 </div>
-                            
-
-                            <div class="input-group mb-3">
-                                <span class="input-group-text col-4 col-sm-4 col-md-4 col-lg-2 " id="basic-addon1">Repetidores</span>
+                            <!-- <div class="input-group mb-3">
+                                <span class="input-group-text col-4 col-sm-4 col-md-4 col-lg-2 " id="basic-addon1">Repetidos</span>
                                 <select class="form-select" id="select" aria-label="Default select example">
                                     <option selected value="NO">No</option>
                                     <option value="Si">Si</option>
                                 </select>
-                            </div>
+                            </div> -->
                             <div class="input-group mb-3">
                                 <span class="input-group-text col-4 col-sm-4 col-md-4 col-lg-2" id="basic-addon1">Premio</span>
                                 <select class="form-select" id="select" aria-label="Default select example">
                                     <option selected>Seleccione los premios</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    <option *ngFor="let item of this.arrayPremios">{{item.descripcion}}</option>
                                 </select>
                             </div>
                         </div>
-                            <button id="BotonGx" class="btn btn-outline" data-bs-toggle="modal"
+                            <button  id="BotonGx" class="btn btn-outline" data-bs-toggle="modal"
                                 data-bs-target="#exampleModal">Generar</button>
   
                                 <br>

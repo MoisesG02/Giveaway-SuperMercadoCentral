@@ -10,6 +10,7 @@ import * as XLSX from "xlsx";
 export class SorteoPremiosComponent implements OnInit {
   ExcelData: any;
 
+
   constructor( public router : Router ) { }
 
   ngOnInit(): void {
@@ -28,6 +29,7 @@ export class SorteoPremiosComponent implements OnInit {
       localStorage.setItem('Informacion Sorteo',JSON.stringify(this.ExcelData))
     }
   }
+
 
   IR(a: any){
     console.log(a)
