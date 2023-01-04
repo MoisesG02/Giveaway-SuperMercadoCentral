@@ -13,12 +13,14 @@ import { MantPremiosComponent } from './mant-premios/mant-premios.component';
     AppComponent,
     SorteoPremiosComponent,
     RifaComponent,
-    MantPremiosComponent
+    MantPremiosComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

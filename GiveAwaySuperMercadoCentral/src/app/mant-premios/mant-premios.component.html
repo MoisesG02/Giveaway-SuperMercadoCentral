@@ -2,12 +2,12 @@
 <html lang="es">
 
 <head>
-    
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Required meta tags -->
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!-- Bootstrap datatable -->
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.css" />
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-1.12.1/datatables.min.js"></script>
@@ -26,7 +26,10 @@
         crossorigin="anonymous"></script>
     <title>Mantenimiento Rifa [ PREMIOS ]</title>
     <link rel="stylesheet" href="mant-premios.component.scss">
+  
 </head>
+
+
 
 <body>
     <div class="d-flex justify-content-center" id="div1">
@@ -39,49 +42,31 @@
                             <h1 class="mb-3">Mantenimiento Premios</h1>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-4">
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text col-6 col-sm-6 col-md-6 col-lg-5 " id="basic-addon1">Monto del 1er Premio
-                                        Ganador</span>
-                                    <input [(ngModel)]="premio1" type="text" id="select" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default">
+                                    <span class="input-group-text col-6 col-sm-6 col-md-6 col-lg-5 "
+                                        id="basic-addon1">Monto de los Premios
+                                        Ganadores</span>
+                                    <input [(ngModel)]="premio1" type="text" id="select" class="form-control"
+                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                                 </div>
-                                <!-- <div class="input-group mb-3">
-                                    <span class="input-group-text col-6 col-sm-6 col-md-6 col-lg-5 " id="basic-addon1">Monto del 2do Premio
-                                        Ganador</span>
-                                    <input [(ngModel)]="premio2" type="text" id="select" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text col-6 col-sm-6 col-md-6 col-lg-5 " id="basic-addon1">Monto del 3er Premio
-                                        Ganador</span>
-                                    <input [(ngModel)]="premio3" type="text" id="select" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text col-6 col-sm-6 col-md-6 col-lg-5 " id="basic-addon1">Monto del 4to Premio
-                                        Ganador</span>
-                                    <input [(ngModel)]="premio4" type="text" id="select" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default">
-                                </div>
-                                <div class="input-group mb-3">
-                                    <span class="input-group-text col-6 col-sm-6 col-md-6 col-lg-5 " id="basic-addon1">Monto del 5to Premio
-                                        Ganador</span>
-                                    <input [(ngModel)]="premio5" type="text" id="select" class="form-control" aria-label="Sizing example input"
-                                        aria-describedby="inputGroup-sizing-default">
-                                </div> -->
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <tr  *ngFor="let item of this.premios">
-                                                {{item.descripcion}}
-                                            </tr>
-                                        </div>
-                                    </div>
-                                    <!-- <td>
-                                        <tr  *ngFor="let item of this.premios">
-                                            {{item.descripcion}}
-                                        </tr>
-                                    </td> -->
 
-                                <button (click)="agregarpremio()" id="BotonGx" class="btn btn-outline" data-bs-toggle="modal" data-bs-target="#exampleModal">Actualizar
+
+                                <div class="card mt-4 mb-3" id="select" *ngFor="let item of this.premios">
+                                    <div class="row g-0">
+                                      <div class="col-md-4" id="select1" style="background-color: #6ca414 ;">
+                                        <b id="classB">{{item.numero}}° Premio</b>
+                                      </div>
+                                      <div class="col-md-8">
+                                        <div class="card-body">
+                                            {{item.descripcion}}
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                   
+                               
+                               
+                                <button (click)="agregarpremio()"  id="BotonGx" class="btn btn-outline"
+                                    data-bs-toggle="modal" data-bs-target="#exampleModal">Actualizar
                                     Premio</button>
                             </div>
                         </div>
@@ -90,5 +75,5 @@
             </div>
         </div>
     </div>
-    
+
 </body>

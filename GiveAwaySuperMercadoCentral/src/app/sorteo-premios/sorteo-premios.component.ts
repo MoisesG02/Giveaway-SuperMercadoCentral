@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as XLSX from "xlsx";
-
+import { Injectable } from '@angular/core';
+@Injectable({
+  providedIn: 'root'
+})
 @Component({
   selector: 'app-sorteo-premios',
   templateUrl: './sorteo-premios.component.html',
   styleUrls: ['./sorteo-premios.component.scss']
 })
 export class SorteoPremiosComponent implements OnInit {
-  ExcelData: any;
+ public ExcelData: any;
+ Clasificacion = {a: "1ro", b: "2do" ,c: "3ro",d: "4to",e: "5to"};
+
 
 
   constructor( public router : Router ) { }
@@ -24,17 +29,30 @@ export class SorteoPremiosComponent implements OnInit {
     fileReader.onload = (e) => {
       var workBook = XLSX.read(fileReader.result, { type: 'binary' });
       var sheetNames = workBook.SheetNames;
-      this.ExcelData = XLSX.utils.sheet_to_json(workBook.Sheets[sheetNames[0]])
-      console.log(this.ExcelData)
-      localStorage.setItem('Informacion Sorteo',JSON.stringify(this.ExcelData))
+    return  this.ExcelData = XLSX.utils.sheet_to_json(workBook.Sheets[sheetNames[0]])
+      
+
+
     }
   }
 
-
+  setData(item:any) {
+    item = this.ExcelData;
+  }
+  getData() {
+    return this.ExcelData;
+  }
   IR(a: any){
-    console.log(a)
+    let x = this.ExcelData
+    console.log(this.ExcelData)
     if(a == 1){
-      this.router.navigateByUrl('/rifa');
+      console.log(this.ExcelData)
+      this.router.navigate(['/rifa', x]);
     }
+  
+  }
+  SorteosFinal(){
+    this.router.navigate(['/mant-premios']);
+    localStorage.setItem('Rank', JSON.stringify(this.Clasificacion));
   }
 }
