@@ -24,27 +24,18 @@
             <div class="col-sm-6">
                 <div class="card text-center">
                     <div class="card-body">
-                        <h6 class="card-title"><i class="bi bi-arrow-up-circle"></i> SUBIR EXCEL DE SORTEO.</h6>
-                        <input type="file" (change)="ReadExcel($event)">
+                        <h6 class="card-title" (click)="SorteosFinal()"><i class="bi bi-gear-fill"></i> Actualizar Premios.</h6>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="card text-center" id="card" >
-                    <div class="card-body" (click)="IR(1)">
+                    <div class="card-body" (click)="IR()">
                         <h6 class="card-title"><i class="bi bi-arrow-right-circle"></i> SIGUIENTE</h6>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="text-center mt-5">
-            <button id="animated-button" (click)="SorteosFinal()">
-               <span><i class="bi bi-gear-fill" ></i> Soporte Tecnico</span>
-            </button>
-
-
-        </div>
-   
+        </div>   
     </div>
 </body>
 

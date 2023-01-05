@@ -28,8 +28,8 @@ export class MantPremiosComponent implements OnInit {
       this.IDRank = ID + 1;
       localStorage.setItem("ID", JSON.stringify(this.IDRank))
       if (this.IDRank == 6) {
-        location.reload();
-        localStorage.removeItem('ID');
+      localStorage.removeItem('ID');
+      location.reload();
       }
     }
 
