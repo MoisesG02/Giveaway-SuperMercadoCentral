@@ -11,6 +11,32 @@
     font: 12px Arial;
 }
 
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.drag-drop span.desc {
+    display: block;
+    font-size: .7em;
+    padding: 0 .5em;
+    color: #000;
+    }
+    input[type="file"] {
+    height: 2em;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    }
+
+
+
 h1 {
     font-weight: 800;
     font-size: 36px;
@@ -63,22 +89,26 @@ h1 {
 }
 
 #div3 {
-    height: 239px;
+    height: 289px;
     position: relative;
     background-color: #fbdc06;
 
 }
 
 #div4 {
-    height: 180px;
+    height: 280px;
     position: relative;
 
     background-color: #fb8506;
 
 }
-
+.swal2-popup {
+    font-size: 1.6rem !important;
+    font-family: Georgia, serif;
+  }
+  
 #div5 {
-    height: 180px;
+    height: 280px;
     position: relative;
     background-color: #ec0424;
 
@@ -88,8 +118,9 @@ h1 {
     z-index: 1;
     position: absolute;
     width: 1480px;
-    height: 900px;
+    height: 1000px;
     border-radius: 8px;
     background-color: #FFFFFFFF;
     text-align: center;
 }
+

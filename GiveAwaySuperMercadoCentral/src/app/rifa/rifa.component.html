@@ -33,7 +33,7 @@
 </head>
 
 <body>
-    <div class="container mt-5">
+    <!-- <div class="container mt-5">
         <div class="row">
             <div class="col-sm-6">
                 <div class="card text-center">
@@ -44,9 +44,21 @@
                 </div>
             </div>
         </div>
-    </div>
-    <div class="d-flex justify-content-center" id="div1" >
+    </div> -->
+    <div class="d-flex justify-content-center" id="div1">
         <div class="container mt-5" id="div2">
+            <div class="d-flex justify-content-start">
+                <div class="row">
+                    <div class="drag-drop">
+                        <button type="button" class="btn btn-outline" (change)="ReadExcel($event)">
+                            <i class="bi bi-gear-fill"></i>
+                          <label id="img" for="img">
+                          <input class="inputfile" type="file" id="img" name="subida">
+                        </label>
+                        </button>
+                      </div>                
+                </div>
+            </div>
             <img class="col-6 col-sm-6 col-md-6 col-lg-5 mt-5" src="../../assets/RifaCentral.jpg" alt="Logo Central">
             <div class="container mt-5">
                 <div class="row">
@@ -55,50 +67,39 @@
                             <h1 class="mb-3">Parametros de rifa</h1>
                             <div class="col-12 col-sm-12 col-md-12 col-lg-12 mt-4">
                                 <div class="input-group mb-3">
-                                    <span class="input-group-text col-4 col-sm-4 col-md-4 col-lg-2" id="basic-addon1">#Ganadores</span>
-                                    <input  type="text" id="select" [(ngModel)]="numero" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                                    <span class="input-group-text col-4 col-sm-4 col-md-4 col-lg-2"
+                                        id="basic-addon1">#Ganadores</span>
+                                    <input type="text" id="select" [(ngModel)]="numero" class="form-control"
+                                        aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
                                 </div>
-                            <!-- <div class="input-group mb-3">
-                                <span class="input-group-text col-4 col-sm-4 col-md-4 col-lg-2 " id="basic-addon1">Repetidos</span>
-                                <select class="form-select" id="select" aria-label="Default select example">
-                                    <option selected value="NO">No</option>
-                                    <option value="Si">Si</option>
-                                </select>
-                            </div> -->
-                            <div class="input-group mb-3">
-                                <span class="input-group-text col-4 col-sm-4 col-md-4 col-lg-2" id="basic-addon1">Premio</span>
-                                <select class="form-select" id="select" aria-label="Default select example">
-                                    <option selected>Seleccione los premios</option>
-                                    <option *ngFor="let item of this.arrayPremios">{{item.descripcion}}</option>
-                                </select>
+                
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text col-4 col-sm-4 col-md-4 col-lg-2"
+                                        id="basic-addon1">Premio</span>
+                                    <select class="form-select" id="select" aria-label="Default select example">
+                                        <option selected>Seleccione los premios</option>
+                                        <option *ngFor="let item of this.arrayPremios">{{item.descripcion}}</option>
+                                    </select>
+                                </div>
                             </div>
-                        </div>
-                            <button  id="BotonGx" class="btn btn-outline" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal" (click)="sorteo(this.numero)" >Generar</button>
-                                <br>
-                                <br>
-                                <br>
-                                <!-- <div class="modal-header">
-                                    <h4 class="modal-title" id="modal-basic-title">Ganador</h4>
-                                    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss()">
-                                      <span aria-hidden="true">&times;</span>
-                                    </button>
-                                  </div>
-                                  <div class="modal-body">
-                                    <p>Nombre: {{ ganador.nombre }}</p>
-                                    <p>Teléfono: {{ ganador.telefono }}</p>
-                                    <p>Premio: {{ ganador.premio }}</p>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-outline-dark" (click)="modal.close()">Cerrar</button>
-                                  </div> -->
+                            <br>
+                            <br>
+                            <button id="BotonGx" class="btn btn-outline" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal" (click)="sorteo(this.numero)"
+                                (click)="proximoGanador()">Generar</button>
+                            <br>
+                            <br>
+                            <br>
+                            <br>    
+                            <br>
 
                             <!-- Footer -->
                             <footer class="text-center text-lg-start  text-muted">
                                 <!-- Copyright -->
                                 <div class="text-center p-4">
                                     Vigencia desde el 15 de Septiembre, 2022 al 11 de Enero, 2023
-                                    <a class="text-reset fw-bold" href="https://www.instagram.com/supermercadoscentral/?hl=es">@SuperMercadoCentral</a>
+                                    <a class="text-reset fw-bold"
+                                        href="https://www.instagram.com/supermercadoscentral/?hl=es">@SuperMercadoCentral</a>
                                 </div>
                                 <!-- Copyright -->
                             </footer>
@@ -123,24 +124,23 @@
     <div id="div5">
     </div>
 
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
-        role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title" id="modal-title">Añadir Suplidor</h1>
-                </div>
-                <div class="modal-body ">
-
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-outline-close" data-bs-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">Cerrar</span>
-                    </button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CONFIRMAR
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+     <!-- Modal -->
+     <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true">
+     <div class="modal-dialog">
+         <div class="modal-content">
+             <div class="modal-header">
+                 <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
+                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+             </div>
+             <div class="modal-body">
+                 ...
+             </div>
+             <div class="modal-footer">
+                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                 <button type="button" class="btn btn-primary">Understood</button>
+             </div>
+         </div>
+     </div>
+ </div>
 </body>
