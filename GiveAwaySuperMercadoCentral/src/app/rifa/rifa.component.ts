@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SorteoPremiosComponent } from '../sorteo-premios/sorteo-premios.component';
 import * as XLSX from "xlsx";
+import Swal from 'sweetalert2';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class RifaComponent implements OnInit {
   id: any;  
   x:any;
   ExcelData : any = []
+  chosenElements:any = []
   constructor(private route: ActivatedRoute) { 
     this.premios()
 
@@ -29,28 +31,39 @@ export class RifaComponent implements OnInit {
   premios(){
     this.arrayPremios = JSON.parse(localStorage.getItem("Premios")!)
     const ganador = this.arrayPremios[Math.floor(Math.random() * this.arrayPremios.length)];
-    console.log(this.arrayPremios)
-    console.log(ganador)
+    
   }
   sorteo(item:any){
-    let ganadores : any = []
-    const chosenElements =  this.ExcelData.sort(() => Math.random() - 0.5).slice(0,item);
-    
-    if(ganadores)
-    
-    // for(let i = 0; i<ganadores.length;i++){
+    this.chosenElements =  this.ExcelData.sort(() => Math.random() - 0.5).slice(0,item);
+  for (let i = 0; i < this.chosenElements.length; i++) {
+    const objeto = this.chosenElements[i];
+    for (let j = 0; j < this.chosenElements.length; j++) {
+      if (i !== j && objeto.Cedula === this.chosenElements[j].Cedula) {
+        console.log(this.chosenElements)
+        console.log(this.chosenElements[j])
+        this.chosenElements.splice(j, 1, this.ExcelData.sort(() => Math.random() - 0.5).slice(0,1)[0]);
+        console.log(this.chosenElements)
 
-    //     if(ganadores[i].Cedula == ganadores[i+1].Cedula){
+        const objetosFiltrados = this.ExcelData.filter((objeto : any) => {
+          !this.chosenElements.some((o:any) => o.Cedula === objeto.Cedula);
+        });
+        console.log(objetosFiltrados)
 
-    //       console.log(ganadores[i])
-    //     }
-
-
-    // }
-
-
-    console.log(chosenElements)
+      }
+      
+      
+    }
   }
+  this.proximoGanador()
+  
+  
+  
+
+
+
+
+
+}
 
   ReadExcel(event: any) {
     let file = event.target.files[0];
@@ -66,5 +79,53 @@ export class RifaComponent implements OnInit {
     }
   }
 
-  
-}
+  proximoGanador(){
+    
+    let indexGanador = 0;
+    Swal.fire({
+      title: 'Felicidades !!',
+      text: `El ganador es: ${this.chosenElements[indexGanador].Nombre}`,
+    
+      width: 600,
+      padding: '7em',
+      color: '#716add',
+      background: '#fff url(../../assets/confetti.gif)',
+      backdrop: `
+        rgba(0,0,123,0.4)
+        url("https://i.gifer.com/W9k1.gif")
+        
+        no-repeat
+      `,
+      confirmButtonText: 'Aceptar',
+    
+    }).then((result) => {
+      if (result.value) {
+        indexGanador++;
+        if (indexGanador >= this.chosenElements.length) {
+          indexGanador = 0;
+        }
+        this.proximoGanador()
+        Swal.fire({
+          title: 'Felicidades !!',
+          text: `El ganador es: ${this.chosenElements[indexGanador].Nombre}`,
+      
+          width: 600,
+          padding: '7em',
+          color: '#716add',
+          background: '#fff url(../../assets/confetti.gif)',
+          backdrop: `
+            rgba(0,0,123,0.4)
+            url("https://i.gifer.com/W9k1.gif")
+            
+            no-repeat
+          `,
+          confirmButtonText: 'Aceptar',
+        });
+      }
+    });
+
+  }}
+
+
+
+
