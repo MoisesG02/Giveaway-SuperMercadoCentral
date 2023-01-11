@@ -78,7 +78,7 @@
                                         id="basic-addon1">Premio</span>
                                     <select class="form-select" id="select" aria-label="Default select example">
                                         <option selected>Seleccione los premios</option>
-                                        <option *ngFor="let item of this.arrayPremios">{{item.descripcion}}</option>
+                                        <option (change)="selectPremio($event)" value="this.idPremio" [value]="item.descripcion" *ngFor="let item of this.arrayPremios">{{item.descripcion}}</option>
                                     </select>
                                 </div>
                             </div>
