@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -9,9 +10,8 @@ import { Component, OnInit } from '@angular/core';
 export class MantPremiosComponent implements OnInit {
   premios: any = []
   premio1: any;
-  router: any;
   IDRank: any;
-  constructor() {
+  constructor(public router: Router) {
   }
 
 
@@ -39,6 +39,12 @@ export class MantPremiosComponent implements OnInit {
     }
     this.premios.push(premiosactualizado)
     localStorage.setItem("Premios", JSON.stringify(this.premios))
+  }
+
+  ir(e:any){
+    if(e==1){
+      this.router.navigateByUrl('/menu')
+    }
   }
 
 }
