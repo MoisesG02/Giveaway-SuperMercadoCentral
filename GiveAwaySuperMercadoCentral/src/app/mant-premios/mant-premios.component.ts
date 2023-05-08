@@ -27,7 +27,7 @@ export class MantPremiosComponent implements OnInit {
     } else if (this.IDRank = 1) {
       this.IDRank = ID + 1;
       localStorage.setItem("ID", JSON.stringify(this.IDRank))
-      if (this.IDRank == 6) {
+      if (this.IDRank == 20) {
       localStorage.removeItem('ID');
       location.reload();
       }

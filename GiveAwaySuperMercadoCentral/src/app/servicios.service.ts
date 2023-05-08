@@ -11,14 +11,19 @@ export class ServiciosService {
   }
   ganadores(item:any){
 
-  return this.http.post('http://10.0.0.204/rifa/ganador.php',item)
+  return this.http.post('https://rifas.viveporunsueno.do/php/ganador.php',item)
 
   }
+  ganadoresInternos(item:any){
+
+    return this.http.post('https://rifas.viveporunsueno.do/php/ganadoresInternos.php',item)
+
+    }
 
 
   documento(){
     console.log(this.documento)
-    return this.http.get('http://10.0.0.204/rifa/exportarganadores.php')
+    return this.http.get('https://rifas.viveporunsueno.do/php/exportarganadores.php')
 
   }
 }

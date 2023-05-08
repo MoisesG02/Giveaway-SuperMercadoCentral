@@ -51,6 +51,11 @@ export class SorteoPremiosComponent implements OnInit {
 
   }
 
+  IREmpleado() {
+    this.router.navigateByUrl('/rifa-empleados')
+
+  }
+
 
   SorteosFinal() {
     this.router.navigate(['/mant-premios']);

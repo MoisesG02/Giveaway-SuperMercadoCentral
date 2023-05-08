@@ -16,7 +16,7 @@
         crossorigin="anonymous"></script>
     <div class="container mt-5">
         <div class="img-fluid text-center" (click)="ir(1)">.
-        <img src="../../assets/Nuevo logo Central (1).PNG" alt="Logo" width="800px">
+        <img src="assets/Nuevo logo Central (1).PNG" alt="Logo" width="800px">
         </div>
     </div>
     <div class="container mt-5">
@@ -35,7 +35,14 @@
                     </div>
                 </div>
             </div>
-              <div class="col-lx  -6" style="padding-top: 5em;" >
+            <div class="col-sm-6 mt-3">
+              <div class="card text-center" id="card" >
+                  <div class="card-body" (click)="IREmpleado()">
+                      <h4 class="card-title"><i class="bi bi-arrow-right-circle"></i> Rifa Empleados</h4>
+                  </div>
+              </div>
+          </div>
+              <div class="col-lx-6" style="padding-top: 5em;" >
                 <div class="card text-center" >
                     <div class="card-body">
                         <h4 class="card-title" (click)="exportexcel()"><i class="bi bi-gear-fill"></i> Descargar Excel Ganadores.</h4>
